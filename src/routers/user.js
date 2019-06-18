@@ -244,7 +244,7 @@ router.post('/forgotpassword/mail', async (req,res) => {
         to : user.email,
             from : 'paratantoine@gmail.com',
             subject : `Reset Password`,
-            html : `<p>Welcome ${user.name}, Click on this link to reset your password : /newpassword/${token} </p>
+            html : `<p>Welcome ${user.name}, Click on this link to reset your password : https://my-personal-list.herokuapp.com/newpassword/${token} </p>
                     <p>Notice that this link is only avalable during 15 min</p
                     <p> If your are not the one who tried to reset this password, please contact us as soon as possible </p>`
     })
