@@ -26,7 +26,7 @@ form.addEventListener('submit', function(e) {
       successMsg.textContent = respParsed.msg
     }
     else {
-      alert(respParsed.msg)
+      alert("Unable to send you a mail")
     }
   })
   .catch(error => console.log(error));

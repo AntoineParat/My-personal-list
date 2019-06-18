@@ -236,7 +236,7 @@ router.get('/me/avatar', auth, function (req, res) {
 
 router.post('/forgotpassword/mail', async (req,res) => {
     const user = await User.findOne({email : req.body.email});
-    if(user._id== "5d0945e56abb9b0017a482a5") {
+    if(user._id=== "5d0945e56abb9b0017a482a5") {
         return res.send({msg : "As a guest you are not allowed to reset password"})
      }
     const token = await jwt.sign({ _id : user._id}, process.env.JWT_SECRET, { expiresIn : '0.25h'});
