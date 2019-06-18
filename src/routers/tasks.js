@@ -149,7 +149,7 @@ router.get('/me/search', auth, async (req,res) => {
 
 router.delete('/me/delete/alltasks', auth, async (req,res) => {
     try {
-        if(req.user._id=== "5d0945e56abb9b0017a482a5") {
+        if(req.user._id== "5d0945e56abb9b0017a482a5") {
             return res.send({msg : "As a guest you are not allowed to cdelete account"})
          }
         const toDelete = await Task.deleteMany({id : req.user._id})
