@@ -1,118 +1,3 @@
-// const express = require('express');
-// const User = require('../models/user');
-// const router = new express.Router();
-// const auth = require('../express middleware/auth');
-
-
-// router.get('/', function (req, res) {
-//     res.render('index')
-//   })
-
-
-// router.post('/user/login', async (req,res) => {
-//     try { 
-//     const user = await User.findByCredentials(req.body.email, req.body.password)
-//     await user.generateToken()
-//     res.send({err: 0, redirectUrl: "/me", user : user})
-//     } catch (err) {
-//         res.status(400).send(err) 
-//     }
-// })
-  
-// router.get('/sign-up', function (req, res) {
-//     res.render('sign-up')
-//   })
-
-// router.post('/sign-up/user', async (req, res) => { 
-//     const user = new User(req.body);
-//     try {
-//         await user.save()
-//         await user.generateToken()
-//         await res.cookie("userProfil", user); 
-//         res.send({ err: 0, redirectUrl: "/me", user : user})
-//     } catch (err) {
-//         console.log(err)
-//     }
-// })
-
-
-
-
-// //Route for destroying cookie 
-// router.get('/logout', (req, res)=>{ 
-//     //it will clear the userData cookie 
-//     res.clearCookie('userProfil'); 
-//     res.send('user logout successfully'); 
-//     }); 
-
-// //Iterate users data from cookie 
-// router.get('/getuser', (req, res)=>{ 
-//     //shows all the cookies 
-//     const x = req.cookies
-//     res.send(x)
-//     }); 
-      
- 
-// router.get('/users/:id', async (req, res) => {
-//     const id = req.params.id;
-//     if(req.params.id === "all") {
-//         const allUsers = await User.find({})
-//         res.send(allUsers)
-//     }
-//     try { 
-//         const user = await User.findById(id)
-//         res.send(user)  
-//     } 
-//     catch(err) { 
-//         console.log(user)
-//     }
-// })
-
-// router.patch('/users/:id', async (req,res) => {
-//     //define and check for allowed changes
-//     const updates = Object.keys(req.body);
-//     const allowedChanges = ["name", "age", "email", "password"];
-//     const isValidUpdates = updates.every(element => allowedChanges.includes(element));
-
-//     if(!isValidUpdates) {
-//         res.status(400).send('error : invalid updates')
-//     }
-
-//     try { 
-//     //const userToUpdate = await User.findByIdAndUpdate(req.params.id, req.body, {new:true, runValidators : true});
-//     // it was by-passing the middleware pre save because of updating without explicit "save" command
-//     const user = await User.findById(req.params.id)
-//     updates.forEach(element => {
-//         user[element] = req.body[element]
-//     });
-//     await user.save()
-
-//     if(!user) {
-//         res.status(404).send("user not found")
-//     }
-//     res.send(user)
-    
-//     } catch (err) {
-//         console.log(err)
-//     }
-// })
-
-// router.delete('/users/:id', async (req,res) => {
-//     try { 
-//     //const user = await User.findByIdAndDelete(req.params.id)
-//     //for same reasons, it was by-passing middleware pre remove
-//     const user = await User.findById(req.params.id)
-//     await user.remove()
-
-//     if (!user) {
-//         res.status(404).send('error : user not found')
-//     }
-//     res.send(user)
-//     }catch(err) {
-//         res.status(400).send(err)
-//     }
-// })
-
 // module.exports = router;
 
 const express = require('express');
@@ -276,7 +161,7 @@ router.get('/me/avatar', auth, function (req, res) {
 
  router.patch('/me/credentials/mail', auth, async (req,res) =>{
      try{
-        if(req.user._id== "5d08de87a65a8d060ca0af81") {
+        if(req.user._id== "5d0945e56abb9b0017a482a5") {
             return res.send({msg : "As a guest you are not allowed to change email"})
          }
         const checkPass = await bcrypt.compare(req.body.password, req.user.password)
@@ -304,7 +189,7 @@ router.get('/me/avatar', auth, function (req, res) {
 
  router.patch('/me/resetpassword', auth, async (req,res) => {
     try {
-        if(req.user._id== "5d08de87a65a8d060ca0af81") {
+        if(req.user._id== "5d0945e56abb9b0017a482a5") {
             return res.send({msg : "As a guest you are not allowed to change password"})
          }
         const checkPass = await bcrypt.compare(req.body.currentPassword, req.user.password)
@@ -331,7 +216,7 @@ router.get('/me/avatar', auth, function (req, res) {
 
  router.delete('/me/delete/user', auth, async (req,res) => {
      try {
-        if(req.user._id== "5d08de87a65a8d060ca0af81") {
+        if(req.user._id== "5d0945e56abb9b0017a482a5") {
             return res.send({msg : "As a guest you are not allowed to delete account"})
          }
         const user = await User.findById(req.user._id)
@@ -351,7 +236,7 @@ router.get('/me/avatar', auth, function (req, res) {
 
 router.post('/forgotpassword/mail', async (req,res) => {
     const user = await User.findOne({email : req.body.email});
-    if(user._id== "5d08de87a65a8d060ca0af81") {
+    if(user._id== "5d0945e56abb9b0017a482a5") {
         return res.send({msg : "As a guest you are not allowed to reset password"})
      }
     const token = await jwt.sign({ _id : user._id}, process.env.JWT_SECRET, { expiresIn : '0.25h'});
