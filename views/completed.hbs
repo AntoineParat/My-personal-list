@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="/style.css">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class="page-wrapper chiller-theme toggled">
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+            <i class="fas fa-bars"></i>
+        </a>
+        {{>sidebar}}
+       
+        <main class="page-content">
+            <div class="container">
+                <div class="opacity">
+                    <ul class="mainUL" id="card-body">
+                        <div id="loader" class="lds-roller hidden">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container">
+                <ul class="pagination d-flex justify-content-center align-items-center">
+                    <li class="page-item mr-4"><a class="page-link" onclick="getAllTasks(0)" href="#"> Previous</a></li>
+                    <li class="white ml-4 mr-4"> page <span id="currentPage"></span> / <span id="totalPage"></span>
+                    </li>
+                    <!--   <li class="white ml-3 mr-4"> tasks <span id="currentTasks"></span> / <span id="totalTasks"></span></li> -->
+                    <li class="page-item ml-4"><a class="page-link" onclick="getAllTasks(1)" href="#"> Next</a></li>
+                </ul>
+            </div>
+
+
+
+            <div class="container">
+                <!-- The Modal -->
+                <div class="modal" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header d-flex justify-content-end">
+                                <button type="button" class="clos" data-dismiss="modal">&times;</button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+    </div>
+
+    {{>jsLinks}}
+    <script src="/js/completed.js"></script>
+</body>
+
+</html>
