@@ -108,10 +108,10 @@ realInput.addEventListener('change', () => {
   })
   .then(resp =>resp.json())
   .then(json => {
-    if(json.msg) {
-      alert(json.msg)
+    if(json.redirectUrl) {
+      window.location = json.redirectUrl;
     }
-    else{window.location= ""}
+    else{window.location= "/"}
   })
 }
 

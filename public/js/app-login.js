@@ -31,7 +31,7 @@ form.addEventListener('submit', function(e) {
     email : e.target[0].value,
     password : e.target[1].value
   }
-    
+
   form.reset();
 
   fetch('/user/login', {

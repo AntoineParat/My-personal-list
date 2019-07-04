@@ -156,6 +156,7 @@ router.delete('/me/delete/alltasks', auth, async (req,res) => {
         if(!toDelete) {
             res.send({err : "tasks not found"})
         }
+        else {res.send({redirectUrl: "/"})}
     }
     catch(err) {
         res.send(err)

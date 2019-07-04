@@ -226,7 +226,8 @@ router.get('/me/avatar', auth, function (req, res) {
             subject : `Good bye ${user.name} !`,
             html : `<p> We are sad to see you going away but we wish you the best !</p>`
         })
-         user.remove()
+         await user.remove()
+         res.send({redirectUrl: "/"})
      }
      catch(err){
          res.send(err)
