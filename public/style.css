@@ -8,6 +8,13 @@
   .stamp {
     display : none
   }
+  #submitNewTask {
+    margin-bottom: 5px;
+  }
+  
+  #viewYourTask {
+    margin-top : 5px;
+  }
  }
 
 
@@ -895,3 +902,13 @@ input[type='file'] {
   text-decoration: none;
   cursor: pointer;
 }
+
+/* Add Tasks */
+
+/* #submitNewTask {
+  margin-bottom: 5px;
+}
+
+#viewYourTask {
+  margin-top : 5px;
+} */
