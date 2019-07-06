@@ -99,20 +99,20 @@ realInput.addEventListener('change', () => {
 
 /* DELETE USER ACCOUNT*/
 
- function deleteAll() {
-   fetch('/me/delete/alltasks', { 
-    method: 'DELETE',
-  })
-  fetch('/me/delete/user', { 
-    method: 'DELETE',
-  })
-  .then(resp =>resp.json())
-  .then(json => {
-    if(json.redirectUrl) {
-      window.location = json.redirectUrl;
-    }
-    else{alert("Server is unable to delete your account")}
-  })
+function deleteAll() {
+  fetch('/me/delete/alltasks', { 
+   method: 'DELETE',
+ })
+ fetch('/me/delete/user', { 
+   method: 'DELETE',
+ })
+ .then(resp =>resp.json())
+ .then(json => {
+   if(json.msg) {
+     alert(json.msg)
+   }
+   else{window.location= ""}
+ })
 }
 
 
