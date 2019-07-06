@@ -111,7 +111,7 @@ realInput.addEventListener('change', () => {
     if(json.redirectUrl) {
       window.location = json.redirectUrl;
     }
-    else{window.location= "/"}
+    else{alert("Server is unable to delete your account")}
   })
 }
 

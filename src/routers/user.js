@@ -219,7 +219,6 @@ router.get('/me/avatar', auth, function (req, res) {
         if(req.user._id== "5d0945e56abb9b0017a482a5") {
             return res.send({msg : "As a guest you are not allowed to delete account"})
          }
-         else { 
         const user = await User.findById(req.user._id)
         await sgMail.send({
             to : user.email,
@@ -229,7 +228,6 @@ router.get('/me/avatar', auth, function (req, res) {
         })
          await user.remove()
          res.send({redirectUrl: "/"})
-        }
      }
      catch(err){
          res.send(err)
