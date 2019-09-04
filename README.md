@@ -1,12 +1,12 @@
 # My-personal-list
 
-A complete task manager with Node.js, MongoDB &amp; Express
+A complete task manager with **Node.js, MongoDB &amp; Express**
 
 ![enter image description here](https://www.antoineparat.com/img/list.png)
 
 # Features
 
-- A Server side application using Handlebars.
+- A Server side application using **Handlebars**.
 
   > Templating engine makes easy to handle data on rendering pages.
   
@@ -56,7 +56,7 @@ A complete task manager with Node.js, MongoDB &amp; Express
   
 - Sending emails
 
-  > Welcome emails, password reset flow and cancellation emails are sent with SendGrid
+  > Welcome emails, password reset flow and cancellation emails are sent with **SendGrid**
 
 - Server Deployment
 
